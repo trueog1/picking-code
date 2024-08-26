@@ -64,13 +64,13 @@ def picking_type_classifier(force, pressure):
         if filtered_force[0] >= 5:
             if float(cropped_backward_diff) <= -1.0 and avg_pressure < 700: #this is the bitch to change if it stops working right
                 type = f'Successful'
-                print(f'Apple has been picked! Bdiff: {cropped_backward_diff}   Pressure: {avg_pressure}.\
-                    Force: {filtered_force[0]} vs. Max Force: {np.max(force)}')
+                #print(f'Apple has been picked! Bdiff: {cropped_backward_diff}   Pressure: {avg_pressure}.\
+                    #Force: {filtered_force[0]} vs. Max Force: {np.max(force)}')
                 break 
 
             elif float(cropped_backward_diff) <= -1.0 and avg_pressure >= 700:
                 type = f'Failed'
-                print(f'Apple was failed to be picked :( Force: {np.round(filtered_force[0])} Max Force: {np.max(force)}  Bdiff: {cropped_backward_diff}  Pressure: {avg_pressure}')
+                #print(f'Apple was failed to be picked :( Force: {np.round(filtered_force[0])} Max Force: {np.max(force)}  Bdiff: {cropped_backward_diff}  Pressure: {avg_pressure}')
                 break
 
             elif float(cropped_backward_diff) > -1.0 and np.round(filtered_force[0]) >= 5:
@@ -84,12 +84,12 @@ def picking_type_classifier(force, pressure):
             else:
                 if float(cropped_backward_diff) > -1.0 and np.round(filtered_force[0]) < 5:
                     type = f'Failed'
-                    print(f'Apple was failed to be picked :( Force: {np.round(filtered_force[0])} Max Force: {np.max(force)}  Bdiff: {cropped_backward_diff}  Pressure: {avg_pressure}')
+                    #print(f'Apple was failed to be picked :( Force: {np.round(filtered_force[0])} Max Force: {np.max(force)}  Bdiff: {cropped_backward_diff}  Pressure: {avg_pressure}')
                     break
 
                 elif avg_pressure >= 700 and np.round(filtered_force[0]) < 5:
                     type = f'Failed'
-                    print(f'Apple was failed to be picked :( Force: {np.round(filtered_force[0])} Max Force: {np.max(force)}  Bdiff: {cropped_backward_diff}  Pressure: {avg_pressure}')
+                    #print(f'Apple was failed to be picked :( Force: {np.round(filtered_force[0])} Max Force: {np.max(force)}  Bdiff: {cropped_backward_diff}  Pressure: {avg_pressure}')
                     break
     
     return type, i
